@@ -1,25 +1,10 @@
+# Automodal
+## The automatic fired popup that remember if you already opened it
 
-States are added to the `.remodal`, `.remodal-overlay`, `.remodal-bg`, `.remodal-wrapper` classes.
+This plugin is based on VodkaBears/Remodal so it has all their functionnalities with the new automatic features.
+Read the remodal README.md to know the other features of Automodal, here I will just explain how the Automatic system works.
 
-List:
-```
-.remodal-is-opening
-.remodal-is-opened
-.remodal-is-closing
-.remodal-is-closed
-```
 
-#### Modifier
-
-A modifier that is specified in the [options](#options) is added to the `.remodal`, `.remodal-overlay`, `.remodal-bg`, `.remodal-wrapper` classes.
-
-## Using with other javascript libraries
-
-Remodal has wrappers that make it easy to use with other javascript libraries:
-
-### Ember
-
-* [ember-remodal](https://github.com/sethbrasile/ember-remodal)
 
 ## License
 
