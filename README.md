@@ -18,7 +18,7 @@ This automodal will fireup after 5 seconds and then send a cookie to the browser
 If the page is loaded after the cookie has expired the pop-up will fire again.
 
 ```html
-<div data-automodal-id="myModalId" data-automodal-options="autoDelay: 5000; autoReset: 5">
+<div data-automodal-id="myModalId" data-automodal-options="autoDelay: 5000, autoReset: 5">
 		<button data-automodal-action="close" class="automodal-close"></button>
 		<h1>Automodal</h1>
 		<p>Automatic popup that reminds if you already opened it.</p>
@@ -26,6 +26,35 @@ If the page is loaded after the cookie has expired the pop-up will fire again.
 		fully customizable modal window plugin with declarative configuration and hash tracking.</p>
 	<div>
 ```
+
+## Multiple aumatic pop-ups on the same page
+
+To avoid firing simultaneously multiple pop-ups and respect a delay between them the timer resets after an opened popup has been closed. 
+For instance if you want 3 popup that fire with 1 second interval you can set it like this: 
+```html
+<div data-automodal-id="firstModal" data-automodal-options="autoDelay: 1000, autoReset: 5">
+		<button data-automodal-action="close" class="automodal-close"></button>
+		<h1>Automodal 1</h1>
+</div>
+
+<div data-automodal-id="secondModal" data-automodal-options="autoDelay: 1000, autoReset: 5">
+		<button data-automodal-action="close" class="automodal-close"></button>
+		<h1>Automodal 2</h1>
+</div>
+
+<div data-automodal-id="thirdModal" data-automodal-options="autoDelay: 1000, autoReset: 5">
+		<button data-automodal-action="close" class="automodal-close"></button>
+		<h1>Automodal 3</h1>
+</div>
+```
+In this example the first popup will open after 1 second. The timer stops while the pop-up is open, when the pop-up is closed the timer start again and the second modal wait 1000 seconds before firing.
+
+# IMPORTANT NOTE ABOUT CHROME BROWSER
+
+Chrome browser do not alow to store cookies when the URL points to a local file, so if you want to test this plugin using the demo/index.html do it on a Firefox browser, or find a trick to make it work on Chrome. 
+The cookies system will work perfectly on Chrome once the URL has a proper domain name!
+
+Read more here: http://stackoverflow.com/questions/6232331/setting-cookies-using-javascript-in-a-local-html-file
 
 ## License
 
