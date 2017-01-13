@@ -83,8 +83,8 @@
    * @type {Object}
    */
   var DEFAULTS = $.extend({
-    autoDelay: 1000,  //In miliseconds. Value false will disable auto open of modal.s
-    autoReset: 1440,  //In minutes for the modalbox to appear again(expiration of the cookie). 60*24*X to set expiration in X days, set to false to do not send a cookie. It will then become a really annoying pop-up.
+    autoDelay: false,  //In miliseconds. Value false will disable auto open of modal.s
+    autoReset: false,  //In minutes for the modalbox to appear again(expiration of the cookie). 60*24*X to set expiration in X days, set to false to do not send a cookie. It will then become a really annoying pop-up.
     closeOnConfirm: true,
     closeOnCancel: true,
     closeOnEscape: true,
