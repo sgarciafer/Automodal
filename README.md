@@ -1,14 +1,4 @@
 
-`.remodal-wrapper` – the additional wrapper for the `.remodal`, it is not the overlay and used for the alignment.
-
-`.remodal-overlay` – the overlay of modal dialogs, it is under the wrapper.
-
-`.remodal-bg` – the background of modal dialogs, it is under the overlay and usually it is the wrapper of your content. You should add it on your own.
-
-The `remodal` prefix can be changed in the global settings. See [the `NAMESPACE` option](#namespace).
-
-#### States
-
 States are added to the `.remodal`, `.remodal-overlay`, `.remodal-bg`, `.remodal-wrapper` classes.
 
 List:
