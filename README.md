@@ -52,6 +52,21 @@ For instance if you want 3 popup that fire with 1 second interval you can set it
 ```
 In this example the first popup will open after 1 second. The timer stops while the pop-up is open, when the pop-up is closed the timer start again and the second modal wait 1000 seconds before firing.
 
+## Enabling automatic pop-up
+
+autoDelay have false as default value, so the plugin can replace vodkabears remodal without having to set those properties to false on the already existing HTML.
+To enable the automodal properties you need to explicitly set the autoDelay and autoReset values on the modal HTML.
+
+### autoDelay
+
+autoDelay is set in miliseconds.
+
+### autoReset
+
+autoReset is set in minutes, and it's default value is set to 1440 minutes which equals one day.
+if you set it to false then no cookie will be sent to the browser and the pop-up will open on every page load.
+That's call a very annoying pop-up :-)
+
 # IMPORTANT NOTE ABOUT CHROME BROWSER
 
 Chrome browser do not alow to store cookies when the URL points to a local file, so if you want to test this plugin using the demo/index.html do it on a Firefox browser, or find a trick to make it work on Chrome. 
