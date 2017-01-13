@@ -21,9 +21,9 @@ If the page is loaded after the cookie has expired the pop-up will fire again.
 <div data-automodal-id="myModalId" data-automodal-options="autoDelay: 5000; autoReset: 5">
 		<button data-automodal-action="close" class="automodal-close"></button>
 		<h1>Automodal</h1>
-		<p>
-			Responsive, lightweight, fast, synchronized with CSS animations, fully customizable modal window plugin with declarative configuration and hash tracking.
-		</p>
+		<p>Automatic popup that reminds if you already opened it.</p>
+		<p>Responsive, lightweight, fast, synchronized with CSS animations, 
+		fully customizable modal window plugin with declarative configuration and hash tracking.</p>
 	<div>
 ```
 
