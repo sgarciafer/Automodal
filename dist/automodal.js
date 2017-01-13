@@ -84,7 +84,7 @@
    */
   var DEFAULTS = $.extend({
     autoDelay: 1000,  //In miliseconds. Value false will disable auto open of modal.s
-    autoReset: 1440,  //In minutes for the modalbox to appear again(expiration of the cookie). 60*24*X to set expiration in X days
+    autoReset: 1440,  //In minutes for the modalbox to appear again(expiration of the cookie). 60*24*X to set expiration in X days, set to false to do not send a cookie. It will then become a really annoying pop-up.
     closeOnConfirm: true,
     closeOnCancel: true,
     closeOnEscape: true,
@@ -435,17 +435,17 @@
 		var counter = 0;
 		var timer = setInterval(function(){
 			counter++;
-			/*if(DEBUG)*/ console.log('Seconds since startTimer = '+counter*INTERVAL);
-			console.log(modalRegistry[0]);
-			console.log(modalRegistry[0].autoDelay);
-			
-			if( modalRegistry[0].autoDelay >= INTERVAL*counter /*typeof current !== 'object' || current.state === STATES.CLOSED*/) console.log('YES');
+			if(DEBUG) {
+				console.log('Seconds since startTimer = '+counter*INTERVAL);
+				console.log(modalRegistry[0]);
+				console.log(modalRegistry[0].autoDelay);
+			}
 			
 			if(typeof current === 'object' && current.state === STATES.OPENED || modalRegistry.length < 1) {
 				clearInterval(timer); // we exit the loop if a modal is opened or if the modalRegistry queue is empty.
 			}
 			if( typeof current !== 'object' || current.state === STATES.CLOSED && modalRegistry[0].autoDelay <= INTERVAL*counter){
-					console.log('trying to open');
+				if(DEBUG) console.log('trying to open');
 				$('[data-'+PLUGIN_NAME+'-id='+modalRegistry[0].id+']').automodal().open();
 				modalRegistry.shift();
 				clearInterval(timer);
@@ -474,7 +474,7 @@
 			}
 			
 			var modal = $(modalItem).automodal(options);
-			if(modal && modal.settings.autoDelay && id && modal.readCookie() === null ) {
+			if(modal && modal.settings.autoDelay && id && modal.readCookie() === null && modal.settings.autoDelay !== false ) {
 				modalRegistry.push({'id': id, 'autoDelay': modal.settings.autoDelay});
 			}
 				
@@ -696,6 +696,7 @@
     automodal.$wrapper.show().scrollTop(0);
     automodal.$modal.focus();
 
+	if(DEBUG) console.log(automodal);
     syncWithAnimation(
       function() {
         setState(automodal, STATES.OPENING);
@@ -741,7 +742,7 @@
         unlockScreen();
 
         setState(automodal, STATES.CLOSED, false, reason);
-		automodal.createCookie();
+		if(automodal.settings.autoReset !== false) automodal.createCookie();
       },
 
       automodal);
@@ -845,7 +846,7 @@
 		var id;
 		id = automodal.$modal.attr('data-' + PLUGIN_NAME + '-id');
 		var name = PLUGIN_NAME +'-'+id;
-		createCookie(name,"",-1);
+		document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 	}
 	
 	
