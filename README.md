@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # Automodal
 ## The automatic fired popup that remember if you already opened it
 
